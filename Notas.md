@@ -29,7 +29,7 @@ jsconfig.json Configuration file for JavaScript
 
 # APP ROUTING CONVENTIONS
 
-Dentro del App router pueden existir estos archivos:
+Dentro del App router pueden existir estos archivos especiales:
 layout Layout
 page Page
 loading Loading UI
@@ -41,13 +41,65 @@ template Re-rendered layout
 default Parallel route fallback page
 
 - Pero adicionalmente ofrece otros features como:
+
   [x] Nested Routes
-  [x] Dynamic Routes
+  [ ] Dynamic Routes
   [x] Route Groups and Private Folders
   [x] Parallel and Intercepted Routes
   [x] Metadata File Conventions
   [x] Open Graph and Twitter Images
   [x] SEO
-  [text](https://nextjs.org/docs/getting-started/project-structure)
 
-** CLASE4 Resumen 25/02/2024**
+  Ref: [Estructura del Proyecto](https://nextjs.org/docs/getting-started/project-structure)
+
+# CLASE4 Resumen 26/02/2024
+
+## Terminologia
+
+![alt Terminologia](https://nextjs.org/_next/image?url=%2Fdocs%2Fdark%2Fterminology-component-tree.png&w=1080&q=75&dpl=dpl_7tjrijDcFMxGoJxk1b7WXz5Pav3C)Terminologia del routing
+
+- Tree: El que define una estructura jerarquica comunmente se llama Root (Nodo Mayor).
+- Subtree: Parte del Tree, empienza un nuevo nodo hijo. Si se lo toma como referencia de estructura jerarquica este nodo se lo llamaria Root, pudiendo tener un subtree.
+- Root: El primer nodo en un tree o subtree
+- Left: Nodo en un subtree que no tiene hijos y en el ultimo segmento en el path del URL
+- URL Segment: Parte del URL delimitado por el slash '/'
+- URL Path: Parte del URL que viene despues del dominio.
+
+## App router
+
+Trabaja en el directorio llamado src/app. Es una nueva característica que facilita la creación de aplicaciones web con una estructura de navegación más intuitiva y flexible a traves de archivos brindando una "navegacion inteligente" y manejando redirecciones/metadatos.
+
+Este directorio trabaja a lo largo del directorio "PAGES" que permite incrementar su adopcion.
+Esto le permite optar por algunas rutas de su aplicación en el nuevo comportamiento, manteniendo otras rutas en el directorio de "Pages" para el comportamiento anterior. (Al parecer existe una version anterior al app router llamada page router, pudiendo convivir ambas sin problemas).
+Por defecto todos los componentes dentro del "APP" _son react server components_ que luego podemos convertirlos en _client components_.
+
+El app router tomara prioridad sobre el page router.
+
+### ROLES DE FOLDERS Y FILES
+
+Los folder son usadas para definir rutas.
+
+![alt route_segments](https://nextjs.org/_next/image?url=%2Fdocs%2Fdark%2Froute-segments-to-path-segments.png&w=1080&q=75&dpl=dpl_7tjrijDcFMxGoJxk1b7WXz5Pav3C)Segmento de Rutas
+
+### RUTAS ANIDADAS
+
+Para crear rutas anidadas, se puede agregar una carpeta dentro de otra carpeta.
+
+### CONVENCIONES DE ARCHIVOS
+
+Sigue obivamente las mismas que APP ROUTING
+
+### JERARQUIA DE COMPONENTES
+
+Se renderizan de acuerdo a la siguiente especificidad de archivos especiales:
+
+- layout.js
+- template.js
+- error.js (React error boundary)
+- loading.js (React suspense boundary)
+- not-found.js (React error boundary)
+- page.js or nested layout.js
+
+Adiccional a los archivos especiales, podemos poner nuestros propios archivos ya sean componentes, estilos,etc debido a que mientras los folder definen rutas, solo los "page.tsx y route.jsx" son publicamente accesibles.
+
+Entonces el archivo especial page.tsx es usado para hacer segmentaciones de rutas accesibles y no existe problema es colocar un archivo "page.tsx" en cada segmento ó ruta.
