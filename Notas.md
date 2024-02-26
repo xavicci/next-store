@@ -102,4 +102,60 @@ Se renderizan de acuerdo a la siguiente especificidad de archivos especiales:
 
 Adiccional a los archivos especiales, podemos poner nuestros propios archivos ya sean componentes, estilos,etc debido a que mientras los folder definen rutas, solo los "page.tsx y route.jsx" son publicamente accesibles.
 
-Entonces el archivo especial page.tsx es usado para hacer segmentaciones de rutas accesibles y no existe problema es colocar un archivo "page.tsx" en cada segmento ó ruta.
+Entonces el archivo especial page.tsx es usado para hacer segmentaciones de rutas accesibles y no existe problema es colocar un archivo "page.tsx" en cada segmento de ruta.
+
+Algo importante a considerar es que los "layout.tsx" muestran UI que es compartida en multiples rutas.
+
+## TIPOS DE RUTAS
+
+Existen dos tipos de rutas: estáticas y dinamicas.
+
+Las estáticas son las que colocamos en nuestro folder y agregamos el page.tsx.
+
+### Rutas dinámicas
+
+Son usadas cuando queremos crear segmentos de rutas pero a traves de datos dinámicos, al momento del request se generan o se prerenderizan al momento de la compilacion.
+
+Los segmentos dinamicos son pasados como props "params" a layout, page, route y generateMetadata.
+
+Su convención es envolver al folder en brackets cuadrados [mi_nueva_ruta]
+
+```
+  Route                           Example URL       params
+  app/blog/[slug]/page.js         /blog/a           { slug: 'a' }
+```
+
+Tambien existe la posibilidad de generar Params para el segmento a traves de la función generateStaticParams(), cuyo beneficio principal es que los tiempos de build disminuyan ya que los Layout and Page se crearan solo una vez.
+
+Los segmentos dinámicos pueden ampliarse para abarcar todos los segmentos posteriores añadiendo una elipsis dentro de los brackets [...nombrecarpeta].
+
+- Por ejemplo:
+  ```
+  Route                           Example URL       params
+  app/shop/[...slug]/page.js      /shop/a           { slug: ['a'] }
+  app/shop/[...slug]/page.js      /shop/a/b         { slug: ['a', 'b'] }
+  app/shop/[...slug]/page.js      /shop/a/b/c       { slug: ['a', 'b', 'c'] }
+  ```
+
+Los segmentos Catch-all pueden hacerse opcionales incluyendo el parámetro entre brackets dobles: [[...nombrecarpeta]].
+
+- Por ejemplo:
+
+  ```
+  Route                           Example URL       params
+  app/shop/[[...slug]]/page.js	  /shop	            {}
+  app/shop/[[...slug]]/page.js	  /shop/a	          { slug: ['a'] }
+  app/shop/[[...slug]]/page.js	  /shop/a/b	        { slug: ['a', 'b'] }
+  app/shop/[[...slug]]/page.js	  /shop/a/b/c	      { slug: ['a', 'b', 'c'] }
+  ```
+
+  Al utilizar TypeScript, puede añadir Types para los "Params" en función del segmento de ruta configurado.
+
+- Por ejemplo:
+  ```
+  Route                               params - Type Definition
+  app/blog/[slug]/page.js	            { slug: string }
+  app/shop/[...slug]/page.js	        { slug: string[] }
+  app/shop/[[...slug]]/page.js	      { slug?: string[] }
+  app/[categoryId]/[itemId]/page.js	  { categoryId: string, itemId: string }
+  ```
