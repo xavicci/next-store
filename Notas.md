@@ -159,3 +159,27 @@ Los segmentos Catch-all pueden hacerse opcionales incluyendo el parámetro entre
   app/shop/[[...slug]]/page.js	      { slug?: string[] }
   app/[categoryId]/[itemId]/page.js	  { categoryId: string, itemId: string }
   ```
+
+# CLASE5 Resumen 26/02/2024
+
+Los archivos especiales layout, pages y templates permiten crear un UI para una ruta.
+
+## LAYOUT
+
+Un Layout es un UI que es compartido entre multiples rutas, pueden preserva su estado, seguir siendo interactivos y no se vuelven a re-renderizar. Recordar que cuando usamos layout es obligatorio aceptar la prop _"children"_ para que pueda ser compartida con otros componentes.
+
+Por ejemplo, el layout sera compartido con /dashboard y /dashboard/settings pages.
+![alt layout](https://nextjs.org/_next/image?url=%2Fdocs%2Fdark%2Flayout-special-file.png&w=1080&q=75&dpl=dpl_HKaTZdkuaarspU2J2iNiqNmkbJqv)
+
+### ROOT LAYOUT
+
+Es todo aquello que siempre va a estar presente en la aplicacion y sin importar que cambies de pagina se va a visualizar como por ejemplo el header, el footer, alguna barra de navegación específica y suele haber diferentes tipos de layout para cada parte de la aplicación. Por lo general se ubica en el folder /app y solo él puede contener etiquetas <html> y <body>.
+No es posible pasar datos entre un layout padre y sus hijos. Sin embargo, puedes obtener los mismos datos en una ruta más de una vez, y React deducirá automáticamente las solicitudes sin afectar al rendimiento.
+
+### LOCAL LAYOUT o NESTING LAYOUTS
+
+Este puede ir ubicado dentro de cada segmento de ruta que vayamos anidando reflejando un comportamiento del root layout pero respetando los niveles jerarquicos de los layouts superiores.
+
+## PAGES
+
+Una "PAGE.TSX" es un UI que es unico en una ruta y puede existir en cada folder, ademas pueden hacer fetch a la data del lado del servidor dado que por defecto son server components.
