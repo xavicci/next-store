@@ -183,3 +183,110 @@ Este puede ir ubicado dentro de cada segmento de ruta que vayamos anidando refle
 ## PAGES
 
 Una "PAGE.TSX" es un UI que es unico en una ruta y puede existir en cada folder, ademas pueden hacer fetch a la data del lado del servidor dado que por defecto son server components.
+
+## TEMPLATES
+
+Muy similar a los layouts en la forma que envuelven a los layout hijos o las pages.
+
+A diferencia de los layouts que persiten en las rutas y mantienen estados, los templates crean una nueva instancia para cada uno de sus hijos en la navegación, en otras palabras cuando navegas entre templates se monta la nueva instancia del componente, se recrea los elementos del DOM, no guarda estados y se vuelven a sincronizar sus efectos.
+
+    - Casos de uso:
+        - Caracteristicas que usen useEffect (logging pages) y useState (pagina de formularios de comentarios)
+
+El Template component debe incluir el children prop.
+
+```
+<Layout>
+  {/* Note that the template is given a unique key. */}
+  <Template key={routeParam}>{children}</Template>
+</Layout>
+```
+
+## METADATA
+
+En el app directory, existe el archivo "page" en el que puedes modificar elementos del tag "head" como title y meta usando los metadata apis.
+
+La metada puede ser definida exportando el objeto "metadata" o la funcion generateMetadata en un archivo layout o page.
+
+# CLASE5 27/02/2024 LINKING AND NAVIGATING
+
+Como el routing y la navegación trabaja?
+
+Existen cuatro formas de navegar entre rutas:
+
+```
+    - <Link> Component
+    - <useRouter> hook (client components)
+    - <redirect> function (server components)
+    - Usando "History API"
+```
+
+## LINK COMPONENT
+
+Componente incorporado en Next, similar a \<a>, es la opcion recomendada a usar, se puede usar atributos como className.
+
+```
+import Link from 'next/link'
+
+export default function Page() {
+  return <Link href="/dashboard">Dashboard</Link>
+}
+```
+
+Este componente tiene la siguientes props
+
+```
+Prop	    Example	            Type	            Required
+href	    href="/dashboard"   String or Object    Yes
+replace	    replace={false}     Boolean	            -
+scroll	    scroll={false}      Boolean	            -
+prefetch    prefetch={false}    Boolean or null     -
+```
+
+Para saber si un link esta activo se puede usar el hook usePathnamme().
+Si desea desplazarse a un id específico en la navegación, puede anexar su URL con un enlace hash # o simplemente pasar un enlace hash a la prop href. Esto es posible ya que \<Link> se convierte en un elemento \<a>.
+
+```
+    <Link href="/dashboard#settings">Settings</Link>
+
+    // Output
+    <a href="/dashboard#settings">Settings</a>
+```
+
+## UseRouter
+
+Permite el cambio de rutas mediante codigo desde el lado 'use Client'.
+
+## Redirect
+
+Usado en server components, mediante codigo y condicionales programamos que se rediriga a ciertas rutas.
+
+- Redirect devuelve por defecto un código de estado 307 (Redirección temporal). Cuando se usa en una server action, devuelve un 303, que se usa comúnmente para redirigir a una página de éxito como resultado de una petición POST.
+- Redirect genera internamente un error, _por lo que debe ejecutarse fuera de los bloques try/catch_.
+- Redirect puede ser llamado en los Componentes Cliente durante el proceso de renderizado pero no en los manejadores de eventos. Puede utilizar el hook useRouter en su lugar.
+- Redirect también acepta URLs absolutas y puede utilizarse para redirigir a enlaces externos.
+- Si desea redirigir antes del proceso de renderizado, utilice next.config.js o Middleware.
+
+## History API
+
+Existe history.pushState y history.replaceState que son metodos para actualizar la pila del historial del navegador sin recargar la pagina.
+
+# CLASE6 27/02/2024 COMO FUNCIONA LA NAVEGACION Y EL ROUTING
+
+En el server, el codigo de la aplicación pasa por el proceso de 'code-splitting' por el segmento de rutas.
+En el lado del cliente, Next hace procesos de 'prefetching' y 'caching' a los segmentos de ruta lo que conlleva a que naveguemos a nuevas rutas, el navegador no recarge la pagina y solo ese segmento de ruta se vuelva a re renderizar mejorando la navegacion y perfomance.
+
+## Code Splitting
+
+Permite al codigo de la aplicación dividirse en pequeños bundles para que sean descargados y ejecutados por el navegador reduciendo la cantidad de data transferida y tiempo de ejecución por cada request. Los servers components permiten esta division de rutas automaticamente.
+
+## Prefetching
+
+Precarga una ruta en el background antes que el usuario la visite.
+Existen 2 maneras:
+
+- Con el componente Link:
+  - Dependiente de la clase de ruta:
+    - Ruta estática: por default el prefetch es true, la ruta es precargada y cacheada.
+    - Ruta dinámica: por default es automatico, solo el layout compartido redenriza su arbol hasta el primer archivo loading.tsx reduciendo el costo de un fetching en una ruta dinámica entera.
+- con el hook useRouter
