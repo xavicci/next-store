@@ -289,4 +289,14 @@ Existen 2 maneras:
   - Dependiente de la clase de ruta:
     - Ruta estática: por default el prefetch es true, la ruta es precargada y cacheada.
     - Ruta dinámica: por default es automatico, solo el layout compartido redenriza su arbol hasta el primer archivo loading.tsx reduciendo el costo de un fetching en una ruta dinámica entera.
-- con el hook useRouter
+- con el hook useRouter para precargar rutas mediante codigo.
+
+## Caching
+
+Next tiene del lado de cliente el Router Cache, que mientras uno navega por los segmentos de rutas y rutas visitadas su payload se ira cacheando, por lo que la cache es reusada lo mas posible.
+
+## Partial Rendering
+
+Solo los segmentos de rutas que van cambiando en la navegacion van re-renderizandose en el cliente y cualquier segmento compartido es preservado.
+
+![rendering_partial](https://nextjs.org/_next/image?url=%2Fdocs%2Fdark%2Fpartial-rendering.png&w=1080&q=75&dpl=dpl_AyAEyvHF4qPJiA73RQczzQQ6kDPN)
