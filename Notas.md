@@ -160,7 +160,7 @@ Los segmentos Catch-all pueden hacerse opcionales incluyendo el parámetro entre
   app/[categoryId]/[itemId]/page.js	  { categoryId: string, itemId: string }
   ```
 
-# CLASE5 Resumen 26/02/2024
+# CLASE5 Resumen 28/02/2024
 
 Los archivos especiales layout, pages y templates permiten crear un UI para una ruta.
 
@@ -208,8 +208,8 @@ En el app directory, existe el archivo "page" en el que puedes modificar element
 
 La metada puede ser definida exportando el objeto "metadata" o la funcion generateMetadata en un archivo layout o page.
 
-# CLASE5 27/02/2024 LINKING AND NAVIGATING
-
+# CLASE6 01/03/2024 LINKING AND NAVIGATING
+ 
 Como el routing y la navegación trabaja?
 
 Existen cuatro formas de navegar entre rutas:
@@ -271,7 +271,7 @@ Usado en server components, mediante codigo y condicionales programamos que se r
 
 Existe history.pushState y history.replaceState que son metodos para actualizar la pila del historial del navegador sin recargar la pagina.
 
-# CLASE6 27/02/2024 COMO FUNCIONA LA NAVEGACION Y EL ROUTING
+## COMO FUNCIONA LA NAVEGACION Y EL ROUTING
 
 En el server, el codigo de la aplicación pasa por el proceso de 'code-splitting' por el segmento de rutas.
 En el lado del cliente, Next hace procesos de 'prefetching' y 'caching' a los segmentos de ruta lo que conlleva a que naveguemos a nuevas rutas, el navegador no recarge la pagina y solo ese segmento de ruta se vuelva a re renderizar mejorando la navegacion y perfomance.
@@ -300,3 +300,30 @@ Next tiene del lado de cliente el Router Cache, que mientras uno navega por los 
 Solo los segmentos de rutas que van cambiando en la navegacion van re-renderizandose en el cliente y cualquier segmento compartido es preservado.
 
 ![rendering_partial](https://nextjs.org/_next/image?url=%2Fdocs%2Fdark%2Fpartial-rendering.png&w=1080&q=75&dpl=dpl_AyAEyvHF4qPJiA73RQczzQQ6kDPN)
+
+# CLASE7 01/03/2024 MANEJO DE PARAMETROS
+
+Unicamente el archivo Page.tsx puede recibir el searchParams, el layout no puede dado que no se renderiza a diferencia del Page.
+```
+URL	              searchParams
+/shop?a=1	      { a: '1' }
+/shop?a=1&b=2         { a: '1', b: '2' }
+/shop?a=1&a=2         { a: ['1', '2'] }
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

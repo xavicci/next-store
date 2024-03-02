@@ -1,7 +1,9 @@
+import React from "react";
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <main>
-      <nav>Navegación de las categorías</nav>
+      <nav>Navigate on Categories</nav>
       {children}
     </main>
   );
