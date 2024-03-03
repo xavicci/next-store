@@ -1,4 +1,8 @@
 npx create-next-app@latest --ts iniciar un proyecto.
+el que codea es un developer,
+el que codea y piensa es un Ingeniero,
+y el que codea, piensa y ama lo que hace es un verdadero Artista.
+
 
 # TOP Levels Folders
 
@@ -311,10 +315,102 @@ URL	              searchParams
 /shop?a=1&a=2         { a: ['1', '2'] }
 ```
 
+# CLASE8 02/03/2024 RENDERING - SERVER Y CLIENT COMPONENTS
+
+Para entender plenamente este tema debemos estar familiarizados con estos tres conceptos:
+
+## Enviroments
+El codigo puede ser ejecutado tanto en el lado del server y cliente.
+![renders](https://nextjs.org/_next/image?url=%2Fdocs%2Fdark%2Fclient-and-server-environments.png&w=1920&q=75&dpl=dpl_3buUPLfjxh3hH2iw5eAdrMHkfwLc)
+
+Por cliente se refiere: lo que el navegador solicita a traves del dispositivo del usuario y el server responde con una interface de usuario.
+Por server: a la PC que almacena nuestro codigo de la aplicacion, la pc recibe una solicitud desde el cliente y este envía una respuesta.
+
+## Request-Response Lifecycle
+Inicia cuando un usuario visita o interactua con la aplicación.
+En resumen el usuario interactura con la app, el cliente envía solicitudes http, llegan al server, este las procesa y reponde con recursos de HTML, CSS, JS, etc, esto se renderiza al cliente.
+
+## Network Boundary
+separa el codigo de server y del cliente.
+Con las convenciones "use client" y "use server" podemos definir nuestras fronteras.
+Si necesitas acceder al servidor desde el cliente, envías una nueva petición al servidor en lugar de reutilizar la misma petición. Esto facilita la comprensión de dónde renderizar sus componentes y dónde colocar el Límite de Red.
 
 
+### SERVER COMPONENTS
+Por defecto Next usa Server Components.
+los react server components permiten escribir UI que puede ser renderizado y cacheado en el servidor.
+Existen 3 estrategias de server rendering:
+
+Los beneficios pueden ser:
+	- Data Fetching:al tener tu codigo viviendo dentro del server y a lado de un posible data store, esto hace que se reduzcan los tiempos del fetch para realizar el renderizado.  
+	- Seguridad: Mantiene los datos y la logica del server seguros, evitando exponerlos al cliente.
+	- Cacheo: luego del renderizado, esta informacion se puede guardar y ser utilizada posteriormente.
+	- Bundles Sizes: podemos tener dependencias "precargadas" lista, evitando que el cliente use mas data de los necesario.
+	- Carga de la pagina inicial: El server genera html que permite al usuario visualizar la pagina inmediatamente.
+	- SEO y SNS: ayuda a los bots generar visualizaciones de la pagina.
+	- Streaming: facilita la visualizacion de pequeños bloques de la pagina, hasta que se carge toda.
+
+#### Static Rendering
+
+	- Las rutas son renderizadas en build time, los resultados pueden ser cacheados y empujados a un CDN.
+	- Es util cuando una ruta tiene data que no es personalizada para el usuario, como un blog o pagina de producto.
+#### Dynamic Rendering
+
+	- Las rutas son renderizadas por cada usuario en cada request.
+	- Es util cuando una ruta tiene data que si es personalizada hacia el usuario, como cookies o searchParams.
+	- El uso de las funciones de cookies(), headers() y searchParams hacen que sea automaticamente un render dinámico en toda la ruta.
+#### Streaming
+
+	- Habilita que progresivamente veamos UI desde el servidor, diviendolo en pequeños trozos y enviandolo por diferentes canales o "stream/buffers"
+	- El streaming está integrado por defecto en Next.js App Router. Esto ayuda a mejorar tanto el rendimiento inicial de carga de la página, así como la interfaz de usuario que depende de la obtención de datos más lentos que bloquearían la representación de toda la ruta. Por ejemplo, las reseñas en una página de producto.
+ 	- Para empezar a usar streaming route segments se puede utilizar Loading.tsx
+
+### CLIENT COMPONENTS
+Permite escribir UI interactivos que pueden ser renderizados en el lado del cliente al momento de la solicitud.
+¿Cuando usarlos?
+	- Cuando se usen hooks com useState, effects y event listeners.
+	- Cuando se requiera usar Browser API.
+Se puede usarlo colocando la directiva de  "use client" en el archivo deseado, lo que convertida a todos los archivos que se deriven en el como client components.
+
+### COMPOSICION DE PATRONES
+
+![patrones_render](https://static.platzi.com/media/user_upload/image-89819133-1240-45d3-b6e2-d5c13e5c5d6c.jpg)
 
 
+# CLASE10 02/03/2024 CSS MODULES
+
+Next soporta diferentes maneras de dar estilos a una aplicación:
+- Global CSS: de Uso simple y familiar con el CSS tradicional, puede llevar problemas conforme la aplicación crezca y es llamado desde cualquier parte dentro del directorio app (import './global.css')
+- CSS modules: Crea localmente un alcance de CSS evitando conflictos con los nombres de las clases del resto de componentes.
+- Tailwind CSS: <3
+- Sass: Preprocesador CSS, extiende el CSS.
+- CSS-in-JS: CSS directo a la venas del componente.
+
+## CSS modules
+
+- Puede ser importado desde cualquier archivo dentro del app directory.
+- Solo se habilitan con la extension module.css
+- En produccion todos los CSS module son minificados y spliteados en archivos .css
+- Las hojas de estilo publicadas por paquetes externos pueden importarse en cualquier parte del directorio de la aplicación.
+
+## Sass
+- Ya viene pre-integrado con Next, hay que instalar sus paquetes y usar sus extensiones .scss y .sass
+- Se puede usar componentes Sass vía Css modules con la extension .module.sass
+- Tenemos que configurar el archivo next.config.mjs
+** AUN NO SE ENCUENTRA LA FUNCIONALIDAD .module.sass con turbopack, eviten turbopack para que no salgan errores**
+
+```
+import { dirname, join } from 'path';
+/** @type {import('next').NextConfig} */
+
+const nextConfig = {
+  sassOptions: {
+    includePaths: [join(dirname('./'), 'src/sass')],
+    prependData: `@import "main.sass"`,
+  },
+};
+export default nextConfig;
+```
 
 
 
