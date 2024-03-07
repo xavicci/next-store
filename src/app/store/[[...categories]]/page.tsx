@@ -1,3 +1,7 @@
+import {ProductsWrapper} from "app/components/Store/ProductsWrapper";
+import {getProducts} from "app/services/shopify/products";
+
+
 interface CategoryProps {
   params: {
     categories: string[],
@@ -5,7 +9,11 @@ interface CategoryProps {
   };
 }
 
-export default function Category(props: CategoryProps) {
-  const { categories } = props.params;
-  return <h1> Categoria Dinamica : {categories}</h1>;
+export default async function Category(props: CategoryProps) {
+
+  const products = await getProducts();
+
+  return (
+      <ProductsWrapper products={products}/>
+  );
 }
