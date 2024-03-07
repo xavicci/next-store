@@ -108,7 +108,7 @@ Adiccional a los archivos especiales, podemos poner nuestros propios archivos ya
 
 Entonces el archivo especial page.tsx es usado para hacer segmentaciones de rutas accesibles y no existe problema es colocar un archivo "page.tsx" en cada segmento de ruta.
 
-Algo importante a considerar es que los "layout.tsx" muestran UI que es compartida en multiples rutas.
+Algo importante a considerar es que los "template.tsx" muestran UI que es compartida en multiples rutas.
 
 ## TIPOS DE RUTAS
 
@@ -377,7 +377,7 @@ Se puede usarlo colocando la directiva de  "use client" en el archivo deseado, l
 ![patrones_render](https://static.platzi.com/media/user_upload/image-89819133-1240-45d3-b6e2-d5c13e5c5d6c.jpg)
 
 
-# CLASE10 02/03/2024 CSS MODULES
+# CLASE10 03/03/2024 CSS MODULES
 
 Next soporta diferentes maneras de dar estilos a una aplicación:
 - Global CSS: de Uso simple y familiar con el CSS tradicional, puede llevar problemas conforme la aplicación crezca y es llamado desde cualquier parte dentro del directorio app (import './global.css')
@@ -412,8 +412,44 @@ const nextConfig = {
 export default nextConfig;
 ```
 
+#CLASE13 03/03/20224
 
+Assets estáticos
+La carpeta /public de Next.js puede utilizarse para servir archivos estáticos como imágenes, fuentes y otros archivos. Los archivos dentro de /public también pueden ser almacenados en caché por los proveedores de CDN para que se entreguen de manera eficiente.
 
+# Clase15Image
+
+Image component es una version extendida y mejorada de la etiqueta <img> con caracteristicas de optimización:
+- Optimización en tamaño.
+- Estabilidad visual previniendo el layout shift
+- Carga de paginas rapida mediante lazy loading con opciones de blur.
+- Flexibilidad de Archivos: **ON-DEMAND** rescalamiento de imagenes, siempre para imagenes en server remotos.
+
+Para imagenes locales se pueden importar .jpg,.png,.webp
+Next automaticamente determina el width y height de la imagen basada en el archivo importado.
+
+Para imagenes remotas es necesario indicar el width y height y opcionalmente el blurDataURL, estos tamaños no determinan el tamaño de renderizado de archivo de la imagen.
+Para asegurar una optimizacion segura de imagenes es necesario configurar un patron en archivo next.config.js
+El Loader predeterminado de las aplicaciones Next.js utiliza la API de optimización de imágenes incorporada, que optimiza las imágenes desde cualquier lugar de la web y, a continuación, las sirve directamente desde el servidor web Next.js. Si desea servir sus imágenes directamente desde un CDN o servidor de imágenes, puede escribir su propia función de carga con unas pocas líneas de JavaScript.
+
+Dado que next/image se ha diseñado para garantizar unos buenos resultados de rendimiento, no puede utilizarse de forma que contribuya al desplazamiento del diseño, y debe dimensionarse de una de estas tres maneras:
+Automáticamente, mediante una importación estática
+Explícitamente, incluyendo una propiedad de anchura y altura
+Implícitamente, usando fill, que hace que la imagen se expanda hasta llenar su elemento padre.
+
+## Styling
+
+El estilo del componente Image es similar al estilo de un elemento <img> normal, pero hay que tener en cuenta algunas directrices:
+
+Utilice className o style, no styled-jsx.
+En la mayoría de los casos, recomendamos utilizar la propiedad className. Puede ser un módulo CSS importado, una hoja de estilos global, etc.
+También puede utilizar la propiedad style para asignar estilos en línea.
+No puede usar styled-jsx porque está limitado al componente actual (a menos que marque el estilo como global).
+Cuando se usa fill, el elemento padre debe tener position: relative
+Cuando se utiliza fill, el elemento padre debe tener display: block
+He aquí un resumen de los props disponibles para el componente de imagen:
+
+![props_image](https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%202024-03-03%20171904-45176d4a-578a-4132-8e9a-f5e1273a4d03.jpg)
 
 
 
