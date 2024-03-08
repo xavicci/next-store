@@ -5,21 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68345db3-9c6e-4540-b8fe-92e970926af5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/api/route.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Store/ProductCard/ProductCard.module.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Store/ProductCard/ProductCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Store/ProductCard/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Store/ProductsWrapper/ProductsWrapper.module.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Store/ProductsWrapper/ProductsWrapper.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Store/ProductsWrapper/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/shopify/collections.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/api/cache/path/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/api/cache/tag/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/product/[handle]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/store/StoreLayout.module.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/product/ProductView/ProductView.module.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/product/ProductView/ProductView.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/product/ProductView/ProductViewItemsOrder.module.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/product/ProductView/ProductViewItemsOrder.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/product/ProductView/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shared/Header/Header.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_3_2024_13_07__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_3_2024_13_07__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/store/[[...categories]]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store/[[...categories]]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/store/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/home/MainProducts/MainProducts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/MainProducts/MainProducts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/shopify/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/shopify/products.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/env.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/env.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/shopify/collections.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/shopify/collections.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/shopify/products.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/shopify/products.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/shopify/urls.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/shopify/urls.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +38,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="class31" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -58,7 +67,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "class32",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Xavicci/asx",
+    "last_opened_file_path": "C:/codemar/next-store/src/app/api/cache/path",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -66,10 +75,18 @@
     "nodejs_package_manager_path": "npm",
     "npm.dev.executor": "Run",
     "settings.editor.selected.configurable": "advanced.settings",
-    "ts.external.directory.path": "C:\\codevs\\next-store\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\codemar\\next-store\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\codemar\next-store\src\app\api\cache\path" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\codemar\next-store\src\app\api\cache\tag" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />

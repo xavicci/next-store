@@ -25,3 +25,18 @@ export const getCollections = async() =>{
     console.log(e)
     }
 }
+
+export const getCollectionsProducts = async(id:string)=>{
+    try{
+        const response= await fetch(shopifyUrls.collections.products(id),{
+            headers: new Headers({
+            'X-Shopify-Access-Token': env.SHOPIFY_TOKEN
+        })
+    })
+    const {products} = await response.json();
+
+    return products
+    }catch (e){
+        console.log(e)
+    }
+}
