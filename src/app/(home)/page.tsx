@@ -1,1 +1,1 @@
-import {MainProducts} from "app/components/home/MainProducts";export default function Home(){  return (    <main>        <h1>Products XF</h1>        {/*<MainProducts/>*/}    </main>  );}
+import {MainProducts} from "app/components/home/MainProducts";import {Metadata} from "next";export const metadata:Metadata = {    title:"Future world",    description: "Welcome to the future world",    keywords: ["ecommerce","future","world"]}export default function Home(){  return (    <main>        <h1>Products XF</h1>        <MainProducts/>    </main>  );}
