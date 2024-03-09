@@ -5,16 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68345db3-9c6e-4540-b8fe-92e970926af5" name="Changes" comment="patterns fetching data">
-      <change afterPath="$PROJECT_DIR$/src/components/shared/SanitizeHTML/SanitizeHTML.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/shared/SanitizeHTML/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actions/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/signup/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/signup/NewAccountForm/NewAccountForm.module.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/signup/NewAccountForm/NewAccountForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/signup/NewAccountForm/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphql/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphql/mutations/createUserMutation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphql/mutations/customerAccessTokenCreate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphql/queries/customerName.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(home)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(home)/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/product/[handle]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/product/[handle]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Store/ProductCard/ProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Store/ProductCard/ProductCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/product/ProductView/ProductView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product/ProductView/ProductView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/shopify/collections.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/shopify/collections.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/env.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/env.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +64,7 @@
     "nodejs_package_manager_path": "npm",
     "npm.dev.executor": "Run",
     "settings.editor.selected.configurable": "advanced.settings",
-    "ts.external.directory.path": "C:\\codevs\\next-store\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\codemar\\next-store\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
