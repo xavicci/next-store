@@ -1,0 +1,176 @@
+Index: src/app/store/layout.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>export default function Layout({ children }: { children: React.ReactNode }) {\r\n  return (\r\n    <main>\r\n      <nav>Navegación de las categorías</nav>\r\n      {children}\r\n    </main>\r\n  );\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/store/layout.tsx b/src/app/store/layout.tsx
+--- a/src/app/store/layout.tsx	(revision 90a19418d676b54a34634ff65b4b72cd19a0c6c4)
++++ b/src/app/store/layout.tsx	(date 1709148327944)
+@@ -1,8 +1,10 @@
++import React from "react";
++
+ export default function Layout({ children }: { children: React.ReactNode }) {
+   return (
+     <main>
+-      <nav>Navegación de las categorías</nav>
++      <nav>Navigation de las categorise</nav>
+       {children}
+     </main>
+   );
+-}
++}
+\ No newline at end of file
+Index: .idea/next-store.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/next-store.iml b/.idea/next-store.iml
+new file mode 100644
+--- /dev/null	(date 1709140407042)
++++ b/.idea/next-store.iml	(date 1709140407042)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1709140407071)
++++ b/.idea/modules.xml	(date 1709140407071)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/next-store.iml" filepath="$PROJECT_DIR$/.idea/next-store.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1709140407089)
++++ b/.idea/vcs.xml	(date 1709140407089)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/inspectionProfiles/profiles_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/inspectionProfiles/profiles_settings.xml b/.idea/inspectionProfiles/profiles_settings.xml
+new file mode 100644
+--- /dev/null	(date 1709140407106)
++++ b/.idea/inspectionProfiles/profiles_settings.xml	(date 1709140407106)
+@@ -0,0 +1,6 @@
++<component name="InspectionProjectProfileManager">
++  <settings>
++    <option name="USE_PROJECT_PROFILE" value="false" />
++    <version value="1.0" />
++  </settings>
++</component>
+\ No newline at end of file
+Index: src/app/page.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import Image from \"next/image\";\r\nimport styles from \"./page.module.css\";\r\n\r\nexport default function Home() {\r\n  return (\r\n    <main className={styles.main}>\r\n      <h1>Hola mundo XFC :D</h1>\r\n    </main>\r\n  );\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/page.tsx b/src/app/page.tsx
+--- a/src/app/page.tsx	(revision 90a19418d676b54a34634ff65b4b72cd19a0c6c4)
++++ b/src/app/page.tsx	(date 1709141874426)
+@@ -1,10 +1,10 @@
+-import Image from "next/image";
+ import styles from "./page.module.css";
+ 
+ export default function Home() {
+-  return (
++
++    return (
+     <main className={styles.main}>
+-      <h1>Hola mundo XFC :D</h1>
++      <h1> map</h1>
+     </main>
+   );
+-}
++}
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1709140407561)
++++ b/.idea/.gitignore	(date 1709140407561)
+@@ -0,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+Index: package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"name\": \"next-store\",\r\n  \"version\": \"0.1.0\",\r\n  \"private\": true,\r\n  \"scripts\": {\r\n    \"dev\": \"next dev\",\r\n    \"build\": \"next build\",\r\n    \"start\": \"next start\",\r\n    \"lint\": \"next lint\"\r\n  },\r\n  \"dependencies\": {\r\n    \"react\": \"^18\",\r\n    \"react-dom\": \"^18\",\r\n    \"next\": \"14.1.0\"\r\n  },\r\n  \"devDependencies\": {\r\n    \"typescript\": \"^5\",\r\n    \"@types/node\": \"^20\",\r\n    \"@types/react\": \"^18\",\r\n    \"@types/react-dom\": \"^18\",\r\n    \"eslint\": \"^8\",\r\n    \"eslint-config-next\": \"14.1.0\"\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/package.json b/package.json
+--- a/package.json	(revision 90a19418d676b54a34634ff65b4b72cd19a0c6c4)
++++ b/package.json	(date 1709149913176)
+@@ -3,7 +3,7 @@
+   "version": "0.1.0",
+   "private": true,
+   "scripts": {
+-    "dev": "next dev",
++    "dev": "next dev --turbo",
+     "build": "next build",
+     "start": "next start",
+     "lint": "next lint"
+Index: .idea/inspectionProfiles/Project_Default.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/inspectionProfiles/Project_Default.xml b/.idea/inspectionProfiles/Project_Default.xml
+new file mode 100644
+--- /dev/null	(date 1709140406881)
++++ b/.idea/inspectionProfiles/Project_Default.xml	(date 1709140406881)
+@@ -0,0 +1,6 @@
++<component name="InspectionProjectProfileManager">
++  <profile version="1.0">
++    <option name="myName" value="Project Default" />
++    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
++  </profile>
++</component>
+\ No newline at end of file
